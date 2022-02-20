@@ -11,29 +11,21 @@ import QuoteDetail from "./pages/Quote-Detail";
 import AddQuote from "./pages/Add-Quote";
 import NotFound from "./pages/NotFound";
 
-const INITIAL_STATE = [
-  { key: 1, id: 1, author: "Long", text: "test" },
-  { key: 2, id: 2, author: "Lank123", text: "Lank123" },
-  { key: 3, id: 3, author: "afhbaf", text: "testasfasf" },
-  { key: 4, id: 4, author: "Loasffdsng", text: "tesdfsdst" },
-];
 function App() {
-  const [quotes, setQuotes] = useState(INITIAL_STATE);
-
   return (
     <>
       <MainNavigation />
       <section className={classes.main}>
         <Switch>
-          <Redirect from="/quotes" to="/" exact />
-          <Route path="/" exact>
-            <Quotes quotes={quotes} />
+          <Redirect from="/" to="/quotes" exact />
+          <Route path="/quotes" exact>
+            <Quotes />
           </Route>
           <Route path="/add-quote">
             <AddQuote />
           </Route>
           <Route path="/quotes/:quoteId">
-            <QuoteDetail quotes={quotes} />
+            <QuoteDetail />
           </Route>
           <Route path="*">
             <NotFound />
