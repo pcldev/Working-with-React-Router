@@ -76,12 +76,10 @@ export async function addComment(requestData) {
 }
 
 export async function getAllComments(quoteId) {
-  console.log(quoteId);
-  console.log(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`);
   const response = await fetch(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`);
 
   const data = await response.json();
-  console.log(data);
+
   if (!response.ok) {
     throw new Error(data.message || "Could not get comments.");
   }
